@@ -3,7 +3,7 @@ import SideInfo from "../../components/dashboard/Side/SideInfo";
 import Sidenav from "../../components/dashboard/Side/Sidenav";
 import Topnav from "../../components/dashboard/Topnav/Topnav";
 import css from "./dashboard.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatchActions } from '../../state-manager/dispatchActions'
 import { useNavigate } from 'react-router-dom';
@@ -39,7 +39,7 @@ const Dashboard = () => {
     useEffect(() => {
         getTokenFromLocal();
         loginViaToken();
-    }, []);
+    }, [api_token]);
     
     return (
         <div className={css.main_container}>

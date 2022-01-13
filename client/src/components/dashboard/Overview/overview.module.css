@@ -70,3 +70,31 @@
 .content_four button:active {
     background-color: var(--bg-secondary-darker);
 }
+
+.outer_circle {
+    height: clamp(10rem, 10vw, 20rem);
+    width: clamp(10rem, 10vw, 20rem);
+    min-width: 10rem;
+    border-radius: 50%;
+    /* background-color: var(--bg-secondary-darker); */
+    position: relative;
+    transition: .2s;
+}
+.outer_circle::after {
+    color: var(--text-primary);
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: absolute;
+    height: 70%;
+    width: 70%;
+    border-radius: 50%;
+    content: attr(data-percent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--bg-white);
+    z-index: 0;
+    isolation: isolate;
+}

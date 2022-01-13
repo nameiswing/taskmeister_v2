@@ -17,7 +17,6 @@ import SidenavLink from './SidenavLink';
 const Sidenav = () => {
 
     const [ currentPath, setCurrentPath ] = useState("");
-    const { api_token } = useSelector( state => state.globals )
 
     const links = [
         {name: "Overview", icon: <BiHomeAlt fontSize="1.5rem" /> },
@@ -25,7 +24,6 @@ const Sidenav = () => {
         {name: "Tasks", icon: <BiTask fontSize="1.5rem" /> },
         {name: "Members", icon: <BiGroup fontSize="1.5rem" /> },
         {name: "Add Member", icon: <BiUserPlus fontSize="1.5rem" /> },
-        {name: "Settings", icon: <BiCog fontSize="1.5rem" /> },
         {name: "Help", icon: <BiHelpCircle fontSize="1.5rem" /> },
     ]; //icons will inheret parent font color
 
@@ -54,7 +52,6 @@ const Sidenav = () => {
     }
 
     useEffect(() => {
-        console.log(api_token)
         pathCheck();
     }, []);
 

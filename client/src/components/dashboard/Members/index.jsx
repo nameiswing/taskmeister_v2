@@ -19,7 +19,7 @@ export default Members
 //CHILD COMPONENT
 const MemberCard = ({member}) => {
     return (
-        <div className={`css-rounded-lg css-bg-white border-0 p-3 d-flex flex-row css-shadow-sm`}>
+        <div className={`css-rounded-lg css-bg-white border-0 p-3 d-flex flex-row css-shadow-sm side-in`}>
             <div className='d-flex flex-column  align-items-center'>
                 <div className={`${css.card_image} mb-2`}>
                     <img src={`https://avatars.dicebear.com/api/avataaars/${member.member_id}.svg`} alt="" />

@@ -1,15 +1,17 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 import css from "../styles/dashboard-topnav.module.css";
 // import { BiLogOut, BiUserCircle } from "react-icons/bi";
 import TopnavMenu from "./TopnavMenu";
+import { useSelector } from "react-redux";
+
 
 const Topnav = () => {
 
-    // const [ isHidden, setIsHidden ] = useState(true)
+    const { api_token } = useSelector( state => state.globals );
     
     return (
         <header className={`py-2 container-fluid css-shadow-lg mb-5 ${css.header_container}`} >
-            <div className="d-flex align-items-center justify-content-between container-xl">
+            <div className="d-flex align-items-center justify-content-between">
                 <div className={`${css.brand} `}>
                     <b>t</b>askmeister
                 </div>
@@ -18,8 +20,8 @@ const Topnav = () => {
                         <b className="css-text-secondary">Welcome back,&nbsp;</b>
                         <b className="css-text-primary">User</b>
                     </div>
-                    <button className={`${css.profile_icon}`} >
-                        <img src={`https://avatars.dicebear.com/api/avataaars/${Math.random()}.svg`} alt="profile-icon" height="48" width="48"/>
+                    <button className={`${css.profile_icon}`} id="profile-button">
+                        <img src={`https://avatars.dicebear.com/api/avataaars/${api_token}.svg`} alt="profile-icon" height="48" width="48"/>
                     </button>
                     <TopnavMenu/>
                 </div>

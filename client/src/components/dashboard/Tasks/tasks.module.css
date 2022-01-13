@@ -1,0 +1,48 @@
+.sub_nav {
+    background-color: var(--bg-white);
+    animation-delay: 0;
+    opacity: 0;
+}
+.sub_nav a {
+    color: var(--text-primary);
+    font-weight: 600;
+    opacity: .5;
+    transition: .2s;
+}
+.sub_nav a:hover {
+    opacity: .8;
+}
+.sub_nav a.active {
+    opacity: 1;
+}
+.nav_button {
+    border: 2px solid var(--bg-primary);
+}
+
+.task_item {
+    min-width: 16rem;
+    max-width: 20rem;
+    transition: .2s;
+    opacity: 0;
+}
+.task_item:hover {
+    box-shadow: var(--shadow-sm)
+}
+.due_date {
+    font-size: .875rem;
+    font-weight: 600;
+}
+.due_date span {
+    transform: translateY(.125rem);
+}
+.member_img {
+    background-color: var(--bg-secondary-lighter);
+    border: 2px solid var(--bg-secondary-lighter);
+    box-shadow: var(--shadow-xsm);
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50%;
+    height: 2.5em;
+    width: 2.5rem;
+    z-index: 1;
+}

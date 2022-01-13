@@ -1,0 +1,10 @@
+
+.card_image {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.name {
+    font-weight: 600;
+}

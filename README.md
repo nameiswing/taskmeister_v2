@@ -9,4 +9,4 @@ A task management app with admin(e.g. project mgr.) and client interface. The ad
 
 ## Reminder
 
-Don't forget to `cd folder-name` in your terminal and install dependencies using `npm install`.
+Don't forget to `cd folder-name` in your terminal and install dependencies using `npm install`. Test fork

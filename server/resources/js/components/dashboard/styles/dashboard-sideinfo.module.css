@@ -1,0 +1,37 @@
+.info_container {
+    margin-right: 3rem;
+    /* background-color: #fff; */
+    width: 18rem;
+    opacity: 0;
+}
+.info {
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--bg-secondary-lighter);
+}
+.info h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--bg-primary);
+}
+.notif_container {
+    margin-block: .25rem;
+}
+.notif {
+    font-size: .875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    /* font-family: var(--font-content); */
+    display: block;
+    position: relative;
+}
+.notif::after {
+    position: absolute;
+    content: attr(title);
+    display: block;
+    color: var(--bg-secondary-darker);
+    top: 1.25rem;
+    left: 0;
+    font-weight: 500;
+}

@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/create-user', [UserController::class, 'store']);
-Route::post('/login', [UserController::class, 'login']);
-Route::post('/auto-login', [UserController::class, 'autoLogin']);
-// Route::get('/find/{user}', [UserController::class, 'find']);
+// Public routes - create user is supposedly protected... just placed here for example
+// Will put this inside protected once models, controllers and migrations are already finalized
+Route::post('/create-user', [UserProfileController::class, 'store']);
+
+// Protected routes
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    //
+});
+
+
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});

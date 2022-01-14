@@ -12,11 +12,14 @@ import Home from './pages/home/Home';
 import Register from "./pages/register/";
 import axios from 'axios';
 import Login from "./pages/login";
+import AddProject from "./components/dashboard/Modals/AddProject";
+import AddTask from "./components/dashboard/Modals/AddTask";
 
 axios.defaults.baseURL = "http://localhost:8000";
 
 const App = () => {
     const { saveSessionToken } = useDispatchActions();
+    const { current_modal } = useSelector(state => state.globals);
 
     function getTokenFromLocal() {
         const token = JSON.stringify(localStorage.getItem('api_token'));
@@ -28,7 +31,7 @@ const App = () => {
     }, []);
 
     return (
-        <div className="container-fluid p-0 h-100">
+        <div className="container-fluid p-0 h-100 position-relative">
             <Router>
                 <Routes>
                     <Route path="/">
@@ -47,6 +50,8 @@ const App = () => {
                     </Route>
                 </Routes>
             </Router>
+            {(current_modal[0] && current_modal[1] === 'project') && <AddProject />}
+            {(current_modal[0] && current_modal[1] === 'task') && <AddTask />}
         </div>
     );
 };

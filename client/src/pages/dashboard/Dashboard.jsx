@@ -20,7 +20,6 @@ const Dashboard = () => {
         if(Boolean(token)) {
             axios.post(`api/auto-login`, {token}).then( res => {
                 if(res.data.status === 200) {
-                    console.log(res.data.message);
                     navigate('/dashboard');
                 } else {
                     console.log(res.data.message)

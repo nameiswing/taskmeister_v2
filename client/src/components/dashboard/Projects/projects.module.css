@@ -5,6 +5,8 @@
     background-color: var(--bg-white);
     animation-delay: 0;
     opacity: 0;
+    position: relative;
+    z-index: 99;
 }
 .sub_nav a {
     color: var(--text-primary);
@@ -44,5 +46,16 @@
     transform: translateY(-.125rem);
 }
 .nav_button {
+    background-color: var(--bg-white);
     border: 2px solid var(--text-primary);
+    position: absolute;
+    right: .75rem;
+    top: .5rem;
+    transition: .2s;
+    z-index: inherit;
 }
+/* .nav_button:focus {
+    height: 50vh;
+    width: 50%;
+    min-width: 30rem;
+} */

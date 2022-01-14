@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -36,7 +38,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::where('api_token', $request['api_token'])->get();
+
+        // return response()->json(['status' => 200, 'message'=>$user[0]->id]);
+
+        if(!$user) return response()->json(['status' =>404, 'message' => 'Your are not authenticated.']);
+        $project = new Project();
+        $project->project_name = $request['project_name'];
+        $project->project_summary = $request['project_summary'];
+        $project->user->id= $user[0]->id;
+        $project->status->id = 1;
+        $project->token = Str::random(16);
+        $project->save();
+
+        return response()->json(['status' =>200, 'message' => 'Project saved.']);
+
     }
 
     /**

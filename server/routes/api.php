@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\ProjectController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('/create-user', [UserController::class, 'store']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/auto-login', [UserController::class, 'autoLogin']);
+Route::post('/save-project', [ProjectController::class, 'store']);
 // Route::get('/find/{user}', [UserController::class, 'find']);

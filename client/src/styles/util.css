@@ -59,6 +59,9 @@
 .css-text-secondary {
     color: var(--text-secondary);
 }
+.z-max {
+    z-index: 999;
+}
 .css-button-sm {
     border: 0;
     outline: 0;

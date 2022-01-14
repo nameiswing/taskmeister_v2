@@ -19,8 +19,7 @@ const Home = () => {
                         Collaboration made easy with Taskmeister.
                     </h1>
                     <p className={`${css.lead} fs-5 pb-4 css-text-secondary text-left`}>
-                        Create live segmentd and target the right people for
-                        message based on their behaviors.
+                        Create project and manage it easily with Taskmeister's real-time tasks progress.
                     </p>
                     <a href="#" className="css-button-lg" role="button">
                         Get Started

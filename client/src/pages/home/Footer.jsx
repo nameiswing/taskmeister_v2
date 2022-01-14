@@ -1,42 +1,40 @@
 import css from './home.module.css'
+import { SiGithub } from 'react-icons/si'
+import { SiFacebook } from 'react-icons/si'
+import { SiLinkedin } from 'react-icons/si'
 
 function Footer() {
     return (
-        <div className={`${css.footer} container-fluid p-0`}>
+        <div className={`${css.footer} container-fluid p-0 mt-0`}>
             <footer className="text-center text-lg-start text-white bg-dark text-white">
-                <div className="container p-4 pb-0">
+                <div className="container p-3 pb-0">
                     <section className="">
                         <div className="row">
                             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                                <h6 className="text-uppercase mb-4 font-weight-bold">
-                                    Company name
-                                </h6>
+                                <h4 className="mb-4 font-weight-bold">
+                                    <span className='fs-1 fw-bold'>t</span>askmeister
+                                </h4>
                                 <p>
-                                    Here you can use rows and columns to
-                                    organize your footer content. Lorem ipsum
-                                    dolor sit amet, consectetur adipisicing
-                                    elit.
+                                task management is the link between planning to do something 
+                                and getting it done. 
+
                                 </p>
                             </div>
                             <hr className="w-100 clearfix d-md-none" />
                             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                                 <h6 className="text-uppercase mb-4 font-weight-bold">
-                                    Products
+                                    Overview
                                 </h6>
                                 <p>
-                                    <a className="text-white">MDBootstrap</a>
+                                    <a className="text-white">Dashboard</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">MDWordPress</a>
+                                    <a className="text-white">Projects</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">BrandFlow</a>
+                                    <a className="text-white">Tasks</a>
                                 </p>
-                                <p>
-                                    <a className="text-white">
-                                        Bootstrap Angular
-                                    </a>
-                                </p>
+                
                             </div>
                             <hr className="w-100 clearfix d-md-none" />
                             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -44,18 +42,15 @@ function Footer() {
                                     Useful links
                                 </h6>
                                 <p>
-                                    <a className="text-white">Your Account</a>
+                                    <a className="text-white">Create An Account</a>
                                 </p>
                                 <p>
                                     <a className="text-white">
-                                        Become an Affiliate
+                                         About Us
                                     </a>
                                 </p>
                                 <p>
-                                    <a className="text-white">Shipping Rates</a>
-                                </p>
-                                <p>
-                                    <a className="text-white">Help</a>
+                                    <a className="text-white">Got Questions?</a>
                                 </p>
                             </div>
                             <hr className="w-100 clearfix d-md-none" />
@@ -64,20 +59,14 @@ function Footer() {
                                     Contact
                                 </h6>
                                 <p>
-                                    <i className="fas fa-home mr-3"></i> New
-                                    York, NY 10012, US
+                                    <i className="fas fa-home mr-3"></i> 11th W City Center, 7th Ave, Taguig
                                 </p>
                                 <p>
                                     <i className="fas fa-envelope mr-3"></i>{" "}
-                                    info@gmail.com
+                                    kodeMeister@gmail.com
                                 </p>
                                 <p>
-                                    <i className="fas fa-phone mr-3"></i> + 01
-                                    234 567 88
-                                </p>
-                                <p>
-                                    <i className="fas fa-print mr-3"></i> + 01
-                                    234 567 89
+                                    <i className="fas fa-phone mr-3"></i> +639-9542-135
                                 </p>
                             </div>
                         </div>
@@ -88,42 +77,28 @@ function Footer() {
                         <div className="row d-flex align-items-center">
                             <div className="col-md-7 col-lg-8 text-center text-md-start">
                                 <div className="p-3">
-                                    © 2020 Copyright:
+                                    © 2020 Copyright: 
                                     <a
                                         className="text-white"
-                                        href="https://mdbootstrap.com/"
+                                        href="https://kodego.ph/"
                                     >
-                                        MDBootstrap.com
+                                        KodeGo Philippines
                                     </a>
                                 </div>
                             </div>
                             <div className="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
                                 <a
                                     className="text-white btn btn-outline-light btn-floating m-1"
-                                    role="button"
-                                >
-                                    <i className="fab fa-facebook-f"></i>
+                                    role="button">
+                                    <SiGithub fontSize="1.5rem"/>
                                 </a>
 
-                                <a
-                                    className="text-white btn btn-outline-light btn-floating m-1"
-                                    role="button"
-                                >
-                                    <i className="fab fa-twitter"></i>
+                                <a className="text-white btn btn-outline-light btn-floating m-1" role="button" >
+                                <SiFacebook fontSize="1.5rem"/>
                                 </a>
 
-                                <a
-                                    className="text-white btn btn-outline-light btn-floating m-1"
-                                    role="button"
-                                >
-                                    <i className="fab fa-google"></i>
-                                </a>
-
-                                <a
-                                    className="text-white btn btn-outline-light btn-floating m-1"
-                                    role="button"
-                                >
-                                    <i className="fab fa-instagram"></i>
+                                <a className="text-white btn btn-outline-light btn-floating m-1"role="button" >
+                                <SiLinkedin fontSize="1.5rem"/>
                                 </a>
                             </div>
                         </div>

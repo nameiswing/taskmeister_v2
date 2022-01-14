@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatchActions } from '../../state-manager/dispatchActions';
 import axios from "axios";
+import swal from 'sweetalert'
 
 //COMPONENT STARTS HERE
 const LoginForm = () => {
@@ -34,9 +35,9 @@ const LoginForm = () => {
         try {
             axios.post('/api/login', profile).then( res => {
                 if(res.data.status === 200) {
-                    console.log(res.data.message);
                     localStorage.setItem('api_token', res.data.api_token);
                     saveSessionToken(res.data.api_token);
+                    swal('Succes', res.data.message, 'success')
                     navigate('/dashboard');
                 } else {
                     console.log(res.data.message)
@@ -51,7 +52,6 @@ const LoginForm = () => {
         if(Boolean(token)) {
             axios.post(`api/auto-login`, {token}).then( res => {
                 if(res.data.status === 200) {
-                    console.log(res.data.message);
                     navigate('/dashboard');
                 } else {
                     console.log(res.data.message)
@@ -128,7 +128,7 @@ const LoginForm = () => {
                     value={profile.email_address}
                     changeHandler={handleChange}
                     validator={validator.email_address}
-                    placeholder={'JuanDelaCruz123@gmail.com'}
+                    placeholder={'juan22@gmail.com'}
                     required
                 />
                 <FormControl 
@@ -139,7 +139,7 @@ const LoginForm = () => {
                     value={profile.password}
                     changeHandler={handleChange}
                     validator={validator.password}
-                    placeholder={'*********.'}
+                    placeholder={'******'}
                     required
                 />
                 <div className="d-flex">

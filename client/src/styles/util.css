@@ -7,6 +7,12 @@
 .css-bg-secondary {
     background-color: var(--bg-secondary);
 }
+.css-bg-success {
+    background-color: var(--success);
+}
+.css-bg-danger {
+    background-color: var(--danger);
+}
 .css-text-primary {
     color: var(--text-primary);
 }

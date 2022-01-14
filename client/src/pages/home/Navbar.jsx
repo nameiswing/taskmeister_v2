@@ -5,7 +5,9 @@ import { BiLogInCircle } from 'react-icons/bi'
 function Navbar() {
     return (
         <nav className="navbar bg-transparent container-lg py-3 px-0">
-            <a className="css-text-primary fs-5 fw-bolder" href="#"><b>T</b>askmeister</a>
+            <a className="css-text-primary fs-5 fw-bolder" href="#">
+                <span className="text-light rounded css-bg-primary px-1">task</span>meister
+            </a>
             <ul className={`${css.nav_links} d-flex gap-3  align-items-center m-0`}>
                 <li>
                     <Link to="/dashboard" className='css-link css-text-primary me-1'>

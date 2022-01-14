@@ -13,7 +13,7 @@ const Topnav = () => {
         <header className={`py-2 container-fluid css-shadow-lg mb-5 ${css.header_container}`} >
             <div className="d-flex align-items-center justify-content-between">
                 <div className={`${css.brand} `}>
-                    <b>t</b>askmeister
+                    <span className="text-light css-bg-primary p-1 rounded">task</span>meister
                 </div>
                 <div className="d-flex align-items-center">
                     <div className="me-4">

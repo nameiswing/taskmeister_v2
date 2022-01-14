@@ -30,7 +30,7 @@ const Home = () => {
                     <img src={lndngpg} alt="img"/>
                 </div>
             </header>
-            <div>
+            <div className="mx-5">
                 <section id="services" className={`pb-5 container row mx-auto`}>
                     <h2 className={`${css.heading} display-5 text-center mt-5 mb-4 css-text-primary`}>Our Services</h2>
                     <Card image={plus} title="Create Your Project" />

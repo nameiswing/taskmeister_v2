@@ -17,7 +17,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::all();
+
+        return response()->json(['status' => 200, 'projects' => $projects]);
     }
 
     /**
@@ -38,20 +40,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::where('api_token', $request['api_token'])->get();
+        $users = User::all();
+        $user = $users->where('api_token', $request['api_token'])->first();
 
-        // return response()->json(['status' => 200, 'message'=>$user[0]->id]);
+        // return response()->json(['status' => 200, 'message'=>$user['id']]);
 
         if(!$user) return response()->json(['status' =>404, 'message' => 'Your are not authenticated.']);
         $project = new Project();
         $project->project_name = $request['project_name'];
         $project->project_summary = $request['project_summary'];
-        $project->user->id= $user[0]->id;
-        $project->status->id = 1;
+        $project->user_id= $user['id'];
+        $project->status_id = 1;
         $project->token = Str::random(16);
         $project->save();
 
-        return response()->json(['status' =>200, 'message' => 'Project saved.']);
+        return response()->json(['status' =>200, 'message' => 'Project created!']);
 
     }
 

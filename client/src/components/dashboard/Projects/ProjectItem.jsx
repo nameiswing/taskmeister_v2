@@ -1,17 +1,29 @@
 import css from "./projects.module.css";
+import React, { useState } from 'react'
+
 
 const ProjectItem = ({ project, delay }) => {
+
+    const [ status ] = useState(() => {
+        switch (project.status_id) {
+            case 1: return 'In-progress'
+            case 2: return 'Completed'
+            case 3: return 'Discontinued'
+            default: return 'N/A'
+        }
+    });
+    
     return (
         <div
             className={`${css.project_item} card css-rounded css-shadow-xsm py-2 px-3  side-in`}
             style={{animationDelay:`${delay}s`}}
         >
             <div className="d-flex align-items-center">
-                <span className={`${css.project_id} badge bg-success`}>
+                <span className={`${css.project_id} badge css-bg-success`}>
                     {project.id ?? <span className="d-inline-block" style={{height:'.75rem', width: '.75rem'}}></span>}
                 </span>
-                <span className={`${css.project_id} badge bg-success ms-2 `}>
-                    {project.status_id ?? <span className="d-inline-block">Status</span>}
+                <span className={`${css.project_id} badge css-bg-success ms-2 `}>
+                    {status ?? <span className="d-inline-block">Status</span>}
                 </span>
                 <button className={`ms-auto css-button-sm`}>View</button>
             </div>

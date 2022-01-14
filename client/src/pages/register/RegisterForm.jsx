@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import FormControl from "./FormControl";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import swal from 'sweetalert'
 
 //COMPONENT STARTS HERE
 const RegisterForm = () => {
@@ -117,7 +118,8 @@ const RegisterForm = () => {
         try {
             axios.post('api/create-user', profile).then( res => {
                 if(res.data.status === 200) {
-                    console.log(res.data.message)
+                    console.log(res.data.message);
+                    swal('Success', res.data.message, 'success')
                     navigate('/login')
                 } else if(res.data.status === 400) {
                     console.log(res.data.errors)
@@ -125,8 +127,6 @@ const RegisterForm = () => {
             })
         } catch (error) {
             console.log(error.message)
-        } finally {
-            resetFields(e);
         }
     }
 

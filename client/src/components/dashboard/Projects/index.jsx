@@ -3,19 +3,26 @@ import { BiPlus } from 'react-icons/bi'
 import ProjectItem from './ProjectItem';
 import { useDispatchActions } from '../../../state-manager/dispatchActions';
 import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import axios from 'axios'
 
-
-const projects = [
-    { id: 1, project_name: 'Taskmeister', project_summary: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, tempora?'},
-    { id: 2, project_name: 'Taskmeister', project_summary: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, tempora? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, tempora?'},
-    { id: 3, project_name: 'Taskmeister', project_summary: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, tempora?'},
-    { id: 4, project_name: 'Taskmeister', project_summary: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, tempora? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, tempora?'},
-]
+const controller = new AbortController();
 
 const index = () => {
 
-    const { setCurrentModal } = useDispatchActions();
-    const projects = useSelector( state => state.project )
+    const { setCurrentModal, newProject, incrementApiCalls } = useDispatchActions();
+    const { project } = useSelector( state => state )
+
+    useEffect(() => {
+        if(project.length > 1) return;
+        axios.get('api/projects').then((res) => {
+            if(res.data.status === 200) {
+                newProject(res.data.projects);
+                incrementApiCalls();
+            }
+        })
+        return () => controller.abort();
+    }, []);
     
     return (
         <div className={`${css.container} mx-4 mb-5 w-100`}>
@@ -31,8 +38,8 @@ const index = () => {
                     <BiPlus fontSize="1.5rem" />Add Project
                 </button>
             </div>
-            <div className={` ${css.item_container} d-flex gap-3 flex-wrap px-4 pt-2 pb-4`}>
-                {projects.map( (item, idx) => (
+            <div className={` ${css.item_container} d-flex gap-3 flex-wrap px-4 pt-2 pb-4 align-content-start`}>
+                {project.map( (item, idx) => (
                     <ProjectItem key={idx} project={item} delay={.2 * (idx+1)}/>
                 ))}
             </div>

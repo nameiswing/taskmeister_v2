@@ -2,10 +2,11 @@ import css from './home.module.css'
 import { SiGithub } from 'react-icons/si'
 import { SiFacebook } from 'react-icons/si'
 import { SiLinkedin } from 'react-icons/si'
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <div className={`${css.footer} container-fluid p-0 mt-0`}>
+        <div className={`${css.footer} container-fluid p-0`}>
             <footer className="text-center text-lg-start text-white bg-dark text-white">
                 <div className="container p-3 pb-0">
                     <section className="">
@@ -26,13 +27,13 @@ function Footer() {
                                     Overview
                                 </h6>
                                 <p>
-                                    <a className="text-white">Dashboard</a>
+                                    <Link to="/dashboard" className="text-white">Dashboard</Link>
                                 </p>
                                 <p>
-                                    <a className="text-white">Projects</a>
+                                    <Link to="" className="text-white">Projects</Link>
                                 </p>
                                 <p>
-                                    <a className="text-white">Tasks</a>
+                                    <Link to="" className="text-white">Tasks</Link>
                                 </p>
                 
                             </div>
@@ -42,15 +43,15 @@ function Footer() {
                                     Useful links
                                 </h6>
                                 <p>
-                                    <a className="text-white">Create An Account</a>
+                                    <Link to="/register" className="text-white">Create An Account</Link>
                                 </p>
                                 <p>
-                                    <a className="text-white">
+                                    <Link to="/about" className="text-white">
                                          About Us
-                                    </a>
+                                    </Link>
                                 </p>
                                 <p>
-                                    <a className="text-white">Got Questions?</a>
+                                    <Link to="" className="text-white">Got Questions?</Link>
                                 </p>
                             </div>
                             <hr className="w-100 clearfix d-md-none" />

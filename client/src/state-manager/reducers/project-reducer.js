@@ -6,8 +6,8 @@ const fetchData = (state) => {
     if (Boolean(token)) {
         axios.get('api/projects', token).then(res => {
             if (res.data.status === 200) {
-                console.log(res.data.message)
-                // state = [...state, ...res.data.projects]
+                // console.log(res.data.message)
+                state = [...res.data.projects]
             }
         })
     } else {
@@ -15,10 +15,10 @@ const fetchData = (state) => {
     }
 }
 
-const reducer = (state = [{ id: 1, project_name: "Taskmeister", project_summary: "This is a final capstone project." }], action) => {
+const reducer = (state = [], action) => {
     switch (action.type) {
         case 'NEW_PROJECT':
-            return state = [...state, ...action.payload];
+            return state = [...action.payload];
         case 'FETCH_PROJECTS':
             return () => fetchData(state);
         default:

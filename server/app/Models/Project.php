@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $table = 'project';
+    protected $table = 'projects';
 
     protected $primaryKey = 'id';
 
@@ -18,7 +18,7 @@ class Project extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
-    
+
     public function task() {
         return $this->hasMany(Task::class);
     }

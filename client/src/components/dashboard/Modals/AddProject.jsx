@@ -13,7 +13,7 @@ const AddProject = () => {
     const [input, setInput] = useState({
         project_name: "",
         project_summary: "",
-        api_token: JSON.stringify(localStorage.getItem('api_token')),
+        api_token: localStorage.getItem('api_token'),
     });
     
     function changeHandler(e) {
@@ -28,12 +28,14 @@ const AddProject = () => {
     function addProject(e) {
         e.preventDefault();
         if(!input.project_name || !input.project_summary) return;
-        console.log('Adding project');
+        console.log('Adding project', input);
         axios.post('/api/save-project', input).then( res => {
             if(res.data.status === 200) {
+                console.log(res.data.message);
                 axios.get('/api/projects').then( res => {
                     if(res.data.status === 200) {
                         newProject(res.data.projects)
+                        setCurrentModal([ false, '' ]);
                     }
                 })
             }else {
